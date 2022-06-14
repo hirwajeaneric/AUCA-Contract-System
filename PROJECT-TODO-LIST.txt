@@ -1,0 +1,41 @@
+PROJECT 1:
+----------
+Contract registration system where students create contracts and where the system managers will be managing (Approving and Rejecting contracts).
+
+1. Create all pages that I need for the project
+	* Login
+	* Sign up
+	* Student Account
+	* Forgot password for student
+	* Contract creation
+	* Contract Creating Success message
+	* Created Contract page (History)
+	* A contract page
+	* Dashboard
+	* Admin Login
+	* Admin Sign Up
+	# IMAGE FOLDER
+2. Design the login and the sign up forms
+3. Create the landing page
+4. Design the Student Contract Management Page (Student Account)
+	* Creating a contract
+	* Successful Contract Creation
+	* View of your contract history
+		- These Shall be cards, they shall have colors according to their success or failure.
+	* An already done contract
+		- Should show if the contract was approved, is pending or is rejected
+5. Student Credentials Recovery
+6. Admin Credentials Recovery System
+7. Design the Admin Dashboard
+	* Tables
+	* 
+
+PROJECT 2:
+----------
+An API System that will provide APIs of :
+1. ALL AUCA Students and Also Provide another API for
+2. ALL Students who have registered for courses
+
+PROJECT 3:
+----------
+ 
