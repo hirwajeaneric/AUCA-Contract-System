@@ -37,7 +37,7 @@
     --size-8: 200%;
     --size-9: 300%;
     --size-10: 8px 12px;
-    --size-11: 10px;
+    --size-11: 6px 10px;
     
     --margin1: 0 auto;
 }
@@ -80,11 +80,75 @@ body, .container {
 /*STYLING FOR THE BODY*/
 .container {
     background-color: var(--color-white);
-    background-image: url("resources/img/005-G3.jpg");
+    background-image: url("./resources/img/005-G3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: var(--display1);
+    flex-direction: var(--flex-direction1);
+    justify-content: var(--justify-content-sb);
+    align-items: var(--align-items-c);
 }
 
 .container .overlay {
     padding: var(--size-5);
-    background-color: rgba(0, 0, 0, 0.5);
-    
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: var(--display1);
+    flex-direction: var(--flex-direction2);
+    justify-content: var(--justify-content-c);
+    align-items: var(--align-items-c);
+    width: 100%;
+    height: var(--size-7);
 }
+
+.container .overlay .banner,
+.container .overlay .theForm {
+    width: 40%;
+    background-color: var(--color-auca-blue);
+    padding: var(--size-4);
+}
+
+.container .overlay .theForm {
+    background-color: var(--color-white);
+}
+
+.container .overlay .banner h1,
+.container .overlay .banner h2 {
+    color: var(--color-white);
+}
+
+.container .overlay .theForm input[type=text],
+.container .overlay .theForm input[type=password],
+.container .overlay .theForm input[type=submit]{
+    padding: var(--size-11);
+    width: var(--size-7);
+}
+
+.container .overlay .theForm input[type=text],
+.container .overlay .theForm input[type=password] {
+    /* margin: var(--size-1); */
+}
+
+.container .overlay .theForm input[type=submit]{
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    margin: var(--size-3) 0;
+}
+
+.container .overlay .theForm table {
+    width: 100%;
+}
+
+.container .overlay .theForm table tr {
+    margin-bottom: var(--size-2);
+}
+
+.container .overlay .theForm label {
+    margin-right: var(--size-3);
+} 
+
+
+
+
+
+
