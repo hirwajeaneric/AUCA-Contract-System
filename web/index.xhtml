@@ -16,31 +16,29 @@
         <div class="container">
             <div class="overlay">
                 <div class="banner">
-                    <img src="./resources/img/cropped-AUCA-logo-wide-webblue-2-1-2.png" alt="AUCA Logo"/>
+                    <img src="./resources/img/cropped-AUCA-logo-wide-webblue-2-1-3.png" alt="AUCA Logo"/>
                     <div class="banner-text">
-                        <h1>ADVENTIST UNIVERSITY OF CENTRAL AFRICA</h1>
-                        <h2>CONTRACT REGISTRATION</h2>
-                        <p>Lorem ipsum dolores</p>
+                        <h1>CONTRACT REGISTRATION SYSTEM</h1>
+                        <p>Welcome to AUCA Contract System. You can apply for a payment contract if you are not able to pay the whole fees directly. Lorem ipsum dolores sit amen.</p>
+                        <p class="copyright">Copyright © 2021 Adventist University of Central Africa. All Rights Reserved.</p>
                     </div>
                 </div>
                 <div class="theForm">
                     <h:form>
-                        <h:outputText value="error" />
+                        <h1>Login</h1>
+                        <h:outputText value="incorrect username or password" class="erro-message"/> 
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Student Id"/>
-                            <h:inputText value="#{authent.checking.registrationNumberC}"/>
+                            <h:inputText value="#{authent.checking.registrationNumberC}" maxlength="5" required="true"/>
                             <h:outputLabel value="Password"/>
-                            <h:inputSecret value="#{authent.checking.passwordC}"/>
+                            <h:inputSecret value="#{authent.checking.passwordC}" required="true"/>
                         </h:panelGrid>
-                            <h:commandButton value="LOGIN" action="#{authent.studentlogin()}" />
+                        <h:commandButton value="LOGIN" action="#{authent.studentlogin()}" />
+                        <p>Does not have an account? <h:commandLink value="Create account" action="#{authent.goToSignUp()}"/></p>
                     </h:form>
-                    Does not have an account? <a href="signup.xhtml">Create account</a>
                 </div>
             </div>
         </div>
-        <footer>
-            <p>Copyright © 2021 Adventist University of Central Africa. All Rights Reserved</p>
-        </footer>
     </h:body>
 </html>
 
