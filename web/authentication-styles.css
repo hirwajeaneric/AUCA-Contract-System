@@ -200,7 +200,7 @@ body, .container {
 
 /** AUTHENTICATION ERROR MESSAGE*/
 
-.erro-message {
+.error {
     padding: var(--size-11);
     width: var(--size-7);
     background-color: rgb(255, 181, 181);
@@ -208,8 +208,19 @@ body, .container {
     margin: var(--size-2) 0;
     color: rgb(255, 39, 39);
     font-size: var(--size-12);
-    /* display: block; */
-    display: none;
+    display: block;
+    /* list-style-type: none; */
+} 
+
+.info {
+    padding: var(--size-11);
+    width: var(--size-7);
+    background-color: rgb(181, 255, 199);
+    border-radius: 5px;
+    margin: var(--size-2) 0;
+    color: var(--color-green);
+    font-size: var(--size-12);
+    display: block;
 } 
 
 /* Copyright message*/

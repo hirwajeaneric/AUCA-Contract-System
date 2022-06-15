@@ -65,7 +65,7 @@ public class AuthenticationModel {
             return "student-account";
         }else {
             FacesMessage message = new FacesMessage("Incorrect username or password");
-            FacesContext.getCurrentInstance().addMessage(null, message);
+            FacesContext.getCurrentInstance().addMessage("error-message", message);
             return "index";            
         }
     }
@@ -73,12 +73,12 @@ public class AuthenticationModel {
     public String createAccount(){
         if(userCredentials.getRegistrationNumber()!=null && userCredentials.getEmail() !=null && userCredentials.getConfirmPassword()!=null && userCredentials.getCreatePassword()!=null){
             genericDao.createAccount(userCredentials);
-            FacesMessage message = new FacesMessage("Your account is successfully created!");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-            return "login-result";
+            FacesMessage successMessage = new FacesMessage("Your account is successfully created!");
+            FacesContext.getCurrentInstance().addMessage("successful-creation" , successMessage);
+            return "signup";
         }else{
             FacesMessage message = new FacesMessage("All fields must be filled");
-            FacesContext.getCurrentInstance().addMessage(null, message);
+            FacesContext.getCurrentInstance().addMessage("error-message2", message);
             return "signup";
         }
     }
