@@ -26,22 +26,22 @@
                 <div class="theForm">
                     <h:form>
                         <h1>Create account</h1>
-                        <h:outputText value="incorrect username or password" class="erro-message"/> 
+                        <h:messages id="error-message" class="error-message2" infoClass="info" errorClass="error" />
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Student Id"/>
-                            <h:inputText value="#{authent.userCredentials.registrationNumber}" required="true"/>
+                            <h:inputText value="#{authent.userCredentials.registrationNumber}" id="Registration_number" required="true"/>
                             <h:outputLabel value="First name"/>
-                            <h:inputText value="#{authent.userCredentials.firstName}" required="true"/>
+                            <h:inputText value="#{authent.userCredentials.firstName}" id="First_name"/>
                             <h:outputLabel value="Last name"/>
-                            <h:inputText value="#{authent.userCredentials.lastName}" required="true"/>
+                            <h:inputText value="#{authent.userCredentials.lastName}" id="Last_name"/>
                             <h:outputLabel value="Email"/>
-                            <h:inputText value="#{authent.userCredentials.email}" required="true"/>
+                            <h:inputText value="#{authent.userCredentials.email}" id="Email" required="true"/>
                             <h:outputLabel value="Create password"/>
-                            <h:inputSecret value="#{authent.userCredentials.createPassword}" required="true"/>
+                            <h:inputSecret value="#{authent.userCredentials.createPassword}" id="Password" styleClass="Password" required="true"/>
                             <h:outputLabel value="Confirm password"/>
-                            <h:inputSecret value="#{authent.userCredentials.confirmPassword}" required="true"/>
+                            <h:inputSecret value="#{authent.userCredentials.confirmPassword}" id="Confirm_Password" styleClass="Confirm password" required="true"/>
                         </h:panelGrid>
-                        <h:commandButton value="CREATE ACCOUNT" action="#{authent.createAccount()}" />
+                        <h:commandButton value="CREATE ACCOUNT" action="#{authent.createAccount()}" id="createAccountButton" />
                         <p>Already has an account? <h:link outcome="index" value="Login" /></p>
                     </h:form>
                 </div>
