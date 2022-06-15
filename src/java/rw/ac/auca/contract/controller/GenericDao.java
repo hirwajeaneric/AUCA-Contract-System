@@ -24,17 +24,25 @@ public class GenericDao {
         session.close();
     }
     
-    public String findPassword(String regNumber){
+//    public String findPassCode(String regNumber){
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        transaction = session.beginTransaction();
+//        
+//        Criteria cr = session.createCriteria(StudentCredentials.class);
+//        cr.add(Restrictions.eq("createPassword", regNumber));
+//        String foundPassword = cr.toString();
+//        
+//        transaction.commit();
+//        session.close();
+//        
+//        return foundPassword;
+//    }
+    
+    public StudentCredentials findPassword(String regNumber){
         session = HibernateUtil.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
-        
-        Criteria cr = session.createCriteria(StudentCredentials.class);
-        cr.add(Restrictions.eq("createPassword", regNumber));
-        String foundPassword = cr.toString();
-        
-        transaction.commit();
+        StudentCredentials foundCredentials = (StudentCredentials)session.get(StudentCredentials.class, regNumber);
         session.close();
-        return foundPassword;
+        return foundCredentials;
     }
 
     public List<StudentCredentials> fetchAccounts(){

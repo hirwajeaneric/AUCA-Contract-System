@@ -29,7 +29,7 @@
                         <h:outputText value="incorrect username or password" class="erro-message"/> 
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Student Id"/>
-                            <h:inputText value="#{authent.userCredentials.registrationNumber}" maxlength="5" required="true" />
+                            <h:inputText value="#{authent.userCredentials.registrationNumber}" required="true"/>
                             <h:outputLabel value="First name"/>
                             <h:inputText value="#{authent.userCredentials.firstName}" required="true"/>
                             <h:outputLabel value="Last name"/>
@@ -41,8 +41,8 @@
                             <h:outputLabel value="Confirm password"/>
                             <h:inputSecret value="#{authent.userCredentials.confirmPassword}" required="true"/>
                         </h:panelGrid>
-                        <h:commandButton value="LOGIN" action="#{authent.createAccount()}" />
-                        <p>Already has an account? <h:commandLink value="Login" action="#{authent.goToIndex()}"/></p>
+                        <h:commandButton value="CREATE ACCOUNT" action="#{authent.createAccount()}" />
+                        <p>Already has an account? <h:link outcome="index" value="Login" /></p>
                     </h:form>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                 <div class="theForm">
                     <h:form>
                         <h1>Login</h1>
-                        <h:outputText value="incorrect username or password" class="erro-message"/> 
+                        <!--<h:outputText value="#{sdf}" class="erro-message"/>--> 
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Student Id"/>
                             <h:inputText value="#{authent.checking.registrationNumberC}" maxlength="5" required="true"/>
@@ -34,7 +34,7 @@
                             <h:inputSecret value="#{authent.checking.passwordC}" required="true"/>
                         </h:panelGrid>
                         <h:commandButton value="LOGIN" action="#{authent.studentlogin()}" />
-                        <p>Does not have an account? <h:commandLink value="Create account" action="#{authent.goToSignUp()}"/></p>
+                        <p>Does not have an account? <h:link outcome="signup" value="Create account" /></p>
                     </h:form>
                 </div>
             </div>

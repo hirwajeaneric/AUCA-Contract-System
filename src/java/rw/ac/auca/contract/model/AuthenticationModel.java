@@ -55,14 +55,18 @@ public class AuthenticationModel {
     }
     
     public String studentlogin(){
-        List<StudentCredentials> listOfRegisteredUsers = genericDao.fetchAccounts();
-
-        if(checking.getRegistrationNumberC().equals(userCredentials.getRegistrationNumber())){
+        String enteredId = checking.getRegistrationNumberC();
+        String enteredPassword = checking.getPasswordC();
+        
+        userCredentials = genericDao.findPassword(enteredId);
+        String userPassword = userCredentials.getCreatePassword();
+        
+        if(enteredPassword.equals(userPassword)){
             return "student-account";
-        }else{
+        }else {
             FacesMessage message = new FacesMessage("Incorrect username or password");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            return "index";
+            return "index";            
         }
     }
     
@@ -71,11 +75,11 @@ public class AuthenticationModel {
             genericDao.createAccount(userCredentials);
             FacesMessage message = new FacesMessage("Your account is successfully created!");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            return "signup";
+            return "login-result";
         }else{
             FacesMessage message = new FacesMessage("All fields must be filled");
             FacesContext.getCurrentInstance().addMessage(null, message);
-            return "index";
+            return "signup";
         }
     }
 }
