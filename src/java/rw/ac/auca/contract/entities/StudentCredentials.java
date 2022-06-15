@@ -1,6 +1,7 @@
 package rw.ac.auca.contract.entities;
 
 import java.io.Serializable;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,6 +9,7 @@ import javax.persistence.Id;
  *
  * @author hirwa
  */
+@RequestScoped
 @Entity
 public class StudentCredentials implements Serializable {
     @Id
