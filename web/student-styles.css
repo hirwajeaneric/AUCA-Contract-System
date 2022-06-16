@@ -18,12 +18,15 @@
     --color-faint-orange: rgb(239, 203, 135);
     --color-darkish-red: rgb(211, 57, 57);
     --color-green: green;
+    --color-black: black;
 
     --display1: flex;
     --flex-direction1: column;
     --flex-direction2: row;
     --justify-content-sa: space-around;
     --justify-content-sb: space-between;
+    --justify-content-fs: flex-start;
+    --justify-content-st: start;
     --justify-content-c: center;
     --align-items-c: center;
     --align-items-fls: flex-start;
@@ -45,6 +48,9 @@
     --margin1: 0 auto;
 }
 
+
+
+/*GLOBAL STYLES*/
 body, .container {
     display: var(--display2);
     flex-direction: var(--flex-direction1);
@@ -57,8 +63,11 @@ body, .container {
     margin: var(--margin1);
 }
 
+
+
+/*STYLING FOR THE NAVIGATION */
 .navigation {
-    padding: var(--size-2) var(--size-4);
+    padding: var(--size-1) 0 0;
     background-color: var(--color-light-gray)
 }
 
@@ -67,7 +76,7 @@ body, .container {
     flex-direction: var(--flex-direction2);
     justify-content: var(--justify-content-sb);
     align-items: var(--align-items-c);
-
+    padding: 0 var(--size-4);
 }
 
 .navigation #info-nav a{
@@ -76,21 +85,61 @@ body, .container {
 }
 
 .navigation #info-nav a:hover{
-    color: var(--color-darkish-red);
+    color: var(--color-da   rkish-red);
+
+}
+
+.top-bar, .logo-title, .contract-nav, .user-icon {
+    display: var(--display1);
+    flex-direction: var(--flex-direction2);
+    justify-content: var(--justify-content-sb);
+    align-items: var(--align-items-c);    
+}
+
+.top-bar .logo-title img,
+.user-icon img{
+    width: 30px;
+    margin-right: var(--size-2);
+}
+
+.top-bar{
+    background-color: var(--color-auca-blue);
+    color: var(--color-white);
+    margin-top: var(--size-1);
+    padding: var(--size-1) var(--size-4);
+    position: sticky;
+}
+
+.contract-nav a,
+.contract-nav input{
+    padding: var(--size-10);
+    background-color: var(--color-white);
+    color: var(--color-auca-blue);
+    border-radius: 5px;
+    margin: 0 var(--size-1);
+    border:none;
+    text-decoration: none;
+    font-size: var(--size-12);
+}
+
+.contract-nav a:hover,
+.contract-nav input:hover{
+    background-color: var(--color-orange);
+    color: var(--color-auca-blue);
 }
 
 
 
-/*STYLING FOR THE BODY*/
+/* STYLES FOR THE CONTAINER */
 .container {
     background-color: var(--color-white);
-    background-image: url("./resources/img/005-G3.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: var(--display1);
     flex-direction: var(--flex-direction1);
-    justify-content: var(--justify-content-sb);
+    justify-content: var(--justify-content-fs);
     align-items: var(--align-items-c);
+    min-height: 500px;
 }
 
 .container .overlay {
@@ -102,5 +151,81 @@ body, .container {
     align-items: var(--align-items-c);
     width: 100%;
     height: var(--size-7);
+}
+
+.container h1 {
+    margin: var(--size-4) 0;
+}
+
+.container table {
+    width: 80%;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 0 25px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+table thead tr {
+    background-color: #0087ee;
+    color: #ffffff;
+    text-align: left;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #0087ee;
+}
+
+/*STYLES FOR THE FOOTER*/
+footer {
+    background-color: var(--color-auca-blue);
+    padding: var(--size-4);
+}
+
+footer .footer-content {
+    display: var(--display1);
+    flex-direction: var(--flex-direction2);
+    justify-content: var(--justify-content-sb);
+    align-items: var(--align-items-c);    
+    margin-bottom: var(--size-5);
+}
+
+footer .footer-content img {
+    width: 200px;
+}
+
+footer .footer-content a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+footer .footer-content a:hover {
+    color: var(--color-darkish-red);
+}
+
+footer .copyright p{
+    text-align: center;
+    color: var(--color-white);
+}
+
+footer .copyright {
+
 }
 
