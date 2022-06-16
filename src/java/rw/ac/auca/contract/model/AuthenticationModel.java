@@ -21,7 +21,16 @@ public class AuthenticationModel {
     private LoginCheckUp checking = new LoginCheckUp();
     private AucaStudents aucaStudent = new AucaStudents();
     private GenericDao genericDao = new GenericDao();
+    private String userNames;
 
+    public void setUserNames(String userNames) {
+        this.userNames = userNames;
+    }
+
+    public String getUserNames() {
+        return userNames;
+    }
+    
     public AucaStudents getAucaStudent() {
         return aucaStudent;
     }
@@ -62,6 +71,7 @@ public class AuthenticationModel {
         String userPassword = userCredentials.getCreatePassword();
         
         if(enteredPassword.equals(userPassword)){
+            userNames = userCredentials.getFirstName()+" "+userCredentials.getLastName();
             return "student-account";
         }else {
             FacesMessage message = new FacesMessage("Incorrect username or password");

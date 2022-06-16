@@ -1,10 +1,106 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : Jun 14, 2022, 3:52:48 PM
     Author     : hirwa
 */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+:root{
+    --color-white: white;
+    --color-auca-blue: rgb(0, 60, 145);
+    --color-light-gray: rgb(229, 229, 229);
+    --color-orange: orange;
+    --color-faint-orange: rgb(239, 203, 135);
+    --color-darkish-red: rgb(211, 57, 57);
+    --color-green: green;
+
+    --display1: flex;
+    --flex-direction1: column;
+    --flex-direction2: row;
+    --justify-content-sa: space-around;
+    --justify-content-sb: space-between;
+    --justify-content-c: center;
+    --align-items-c: center;
+    --align-items-fls: flex-start;
+
+
+    --size-1: 10px;
+    --size-2: 20px;
+    --size-3: 25px;
+    --size-4: 50px;
+    --size-5: 90px;
+    --size-6: 100px;
+    --size-7: 100%;
+    --size-8: 200%;
+    --size-9: 300%;
+    --size-10: 8px 12px;
+    --size-11: 6px 10px;
+    --size-12: 90%;
+
+    --margin1: 0 auto;
+}
+
+body, .container {
+    display: var(--display2);
+    flex-direction: var(--flex-direction1);
+    justify-content: var(--justify-content-c);
+    align-items: var(--align-items-c);
+    background-color: var(--color-white);
+}
+
+.navigation, .container {
+    margin: var(--margin1);
+}
+
+.navigation {
+    padding: var(--size-2) var(--size-4);
+    background-color: var(--color-light-gray)
+}
+
+.navigation #info-nav {
+    display: var(--display1);
+    flex-direction: var(--flex-direction2);
+    justify-content: var(--justify-content-sb);
+    align-items: var(--align-items-c);
+
+}
+
+.navigation #info-nav a{
+    text-decoration: none;
+    color: var(--color-auca-blue);
+}
+
+.navigation #info-nav a:hover{
+    color: var(--color-darkish-red);
+}
+
+
+
+/*STYLING FOR THE BODY*/
+.container {
+    background-color: var(--color-white);
+    background-image: url("./resources/img/005-G3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: var(--display1);
+    flex-direction: var(--flex-direction1);
+    justify-content: var(--justify-content-sb);
+    align-items: var(--align-items-c);
+}
+
+.container .overlay {
+    padding: var(--size-5);
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: var(--display1);
+    flex-direction: var(--flex-direction2);
+    justify-content: var(--justify-content-c);
+    align-items: var(--align-items-c);
+    width: 100%;
+    height: var(--size-7);
+}
 

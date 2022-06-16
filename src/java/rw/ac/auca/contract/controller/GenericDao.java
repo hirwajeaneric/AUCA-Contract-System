@@ -1,10 +1,9 @@
 package rw.ac.auca.contract.controller;
 
 import java.util.List;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
+import rw.ac.auca.contract.entities.Contract;
 import rw.ac.auca.contract.entities.StudentCredentials;
 import rw.ac.auca.contract.util.HibernateUtil;
 
@@ -20,6 +19,30 @@ public class GenericDao {
         session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         session.save(credentials);
+        transaction.commit();
+        session.close();
+    }
+    
+    public void createContract(Contract contract){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.save(contract);
+        transaction.commit();
+        session.close();
+    }
+
+    public void updateContract(Contract contract){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.update(contract);
+        transaction.commit();
+        session.close();
+    }
+    
+    public void deleteContract(Contract contract){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.delete(contract);
         transaction.commit();
         session.close();
     }
@@ -44,16 +67,25 @@ public class GenericDao {
         session.close();
         return foundCredentials;
     }
-
-    public List<StudentCredentials> fetchAccounts(){
+    
+    public List<Contract> listContractPerStudent(String regNumber){
         session = HibernateUtil.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
-        List<StudentCredentials> listOfCustomers = session.createCriteria(StudentCredentials.class).list();
-        transaction.commit();
+        List<Contract> listOfYourContracts = session.createCriteria(Contract.class, regNumber).list();
         session.close();
-        return listOfCustomers;
+        return listOfYourContracts;
     }
 
+    public List<Contract> fetchContracts(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<Contract> listOfContracts = session.createCriteria(Contract.class).list();
+        transaction.commit();
+        session.close();
+        return listOfContracts;
+    }
+
+    
+    
 //    public List<Account> fetchAccountData(){
 //        session = HibernateUtil.getSessionFactory().openSession();
 //        transaction = session.beginTransaction();
