@@ -2,6 +2,7 @@ package rw.ac.auca.contract.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,17 +25,16 @@ public class Contract implements Serializable {
     private String dueAmount;
     private String paidAmount;
     private String nameOnReciept;
-    private String installments;
 //    private byte[] paymentReciet;
     private String amountPerInstallment;
-    private LocalDate creationdate;
+    private Date creationdate;
     private String sponsor;
     private String status;
 
     public Contract() {
     }
 
-    public Contract(int contractNumber, String regNumber, String firstName, String lastName, String phone, String email, String dueAmount, String paidAmount, String nameOnReciept, String installments, String amountPerInstallment, LocalDate creationdate, String sponsor, String status) {
+    public Contract(int contractNumber, String regNumber, String firstName, String lastName, String phone, String email, String dueAmount, String paidAmount, String nameOnReciept, String amountPerInstallment, Date creationdate, String sponsor, String status) {
         this.contractNumber = contractNumber;
         this.regNumber = regNumber;
         this.firstName = firstName;
@@ -44,7 +44,6 @@ public class Contract implements Serializable {
         this.dueAmount = dueAmount;
         this.paidAmount = paidAmount;
         this.nameOnReciept = nameOnReciept;
-        this.installments = installments;
         this.amountPerInstallment = amountPerInstallment;
         this.creationdate = creationdate;
         this.sponsor = sponsor;
@@ -123,14 +122,6 @@ public class Contract implements Serializable {
         this.nameOnReciept = nameOnReciept;
     }
 
-    public String getInstallments() {
-        return installments;
-    }
-
-    public void setInstallments(String installments) {
-        this.installments = installments;
-    }
-
     public String getAmountPerInstallment() {
         return amountPerInstallment;
     }
@@ -139,11 +130,11 @@ public class Contract implements Serializable {
         this.amountPerInstallment = amountPerInstallment;
     }
 
-    public LocalDate getCreationdate() {
+    public Date getCreationdate() {
         return creationdate;
     }
 
-    public void setCreationdate(LocalDate creationdate) {
+    public void setCreationdate(Date creationdate) {
         this.creationdate = creationdate;
     }
 
@@ -162,6 +153,6 @@ public class Contract implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    
+
     
 }

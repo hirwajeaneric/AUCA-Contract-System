@@ -38,50 +38,56 @@
                     <table class="step1">
                         <tr>
                             <td colspan="2">
-                                <h2>Step 1: Student Details</h2>
+                                <h2>Step 2: Payment details</h2>
                             </td>
                         </tr>
                         <tr>
-                            <td><h:outputLabel value="Registration number" /></td>
-                            <td><h:inputText value="#{cont.contract.regNumber}" id="regnumber" required="true"/></td>
+                            <td><h:outputLabel value="Due amount" /></td>
+                            <td><h:inputText value="#{cont.contract.dueAmount}" id="dueAmount" required="true"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:message for="regnumber" class="error-message" infoClass="info" errorClass="error" /></td>
-                        </tr>
-                        
-                        <tr>
-                            <td><h:outputLabel value="First name " /></td>
-                            <td><h:inputText value="#{cont.contract.firstName}" id="fname" required="true"/></td>
+                            <td colspan="2"><h:message for="dueAmount" class="error-message" infoClass="info" errorClass="error" /></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:message for="fname" class="error-message" infoClass="info" errorClass="error" /></td>
-                        </tr>
-                        
-                        <tr>
-                            <td><h:outputLabel value="Last name " /></td>
-                            <td><h:inputText value="#{cont.contract.lastName}" id="lname" required="true"/></td>
+                            <td><h:outputLabel value="Paid amount" /></td>
+                            <td><h:inputText value="#{cont.contract.paidAmount}" id="paidAmount" required="true"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:message for="lname" class="error-message" infoClass="info" errorClass="error" /></td>
+                            <td colspan="2"><h:message for="paidAmount" class="error-message" infoClass="info" errorClass="error" /></td>
                         </tr>
                         
                         <tr>
-                            <td><h:outputLabel value="Phone number " /></td>
-                            <td><h:inputText value="#{cont.contract.phone}" id="phone" required="true"/></td>
+                            <td><h:outputLabel value="Name on reciept " /></td>
+                            <td><h:inputText value="#{cont.contract.nameOnReciept}" id="nameOnReciept" required="true"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:message for="phone" class="error-message" infoClass="info" errorClass="error" /></td>
+                            <td colspan="2"><h:message for="nameOnReciept" class="error-message" infoClass="info" errorClass="error" /></td>
                         </tr>
                         
                         <tr>
-                            <td><h:outputLabel value="Email address" /></td>
-                            <td><h:inputText value="#{cont.contract.email}" id="email" required="true"/></td>
+                            <td><h:outputLabel value="Amount per installment " /></td>
+                            <td><h:inputText value="#{cont.contract.amountPerInstallment}" id="amountPerInstallment" required="true"/></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:message for="email" class="error-message" infoClass="info" errorClass="error" /></td>
+                            <td colspan="2"><h:message for="amountPerInstallment" class="error-message" infoClass="info" errorClass="error" /></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><h:outputLabel value="Creation Date " /></td>
+                            <td>
+                                <h:inputText value="#{cont.contract.creationdate}" id="creationDate" required="true">
+                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                </h:inputText>
+                            
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><h:commandButton value="Next" action="#{cont.contractStep2()}" class="form-buttons"/></td>
+                            <td colspan="2"><h:message for="creationDate" class="error-message" infoClass="info" errorClass="error" /></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><h:commandButton value="Previous" action="#{cont.previousToStep1()}" class="form-buttons"/></td>
+                            <td><h:commandButton value="Next" action="#{cont.nextToContractSummary()}" class="form-buttons"/></td>
                         </tr>
                     </table>
                 </h:form>
