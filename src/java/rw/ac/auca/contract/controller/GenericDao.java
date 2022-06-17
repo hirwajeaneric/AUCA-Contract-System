@@ -4,6 +4,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import rw.ac.auca.contract.entities.Contract;
+import rw.ac.auca.contract.entities.ContractSetup;
 import rw.ac.auca.contract.entities.StudentCredentials;
 import rw.ac.auca.contract.util.HibernateUtil;
 
@@ -19,6 +20,22 @@ public class GenericDao {
         session = HibernateUtil.getSessionFactory().openSession();
         transaction = session.beginTransaction();
         session.save(credentials);
+        transaction.commit();
+        session.close();
+    }
+    
+    public void createSetup(ContractSetup setup){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.save(setup);
+        transaction.commit();
+        session.close();
+    }
+
+    public void updateSetup(ContractSetup setup){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.update(setup);
         transaction.commit();
         session.close();
     }
@@ -84,8 +101,16 @@ public class GenericDao {
         return listOfContracts;
     }
 
-    
-    
+    public List<ContractSetup> fetchSetups(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<ContractSetup> listOfSetups = session.createCriteria(ContractSetup.class).list();
+        transaction.commit();
+        session.close();
+        return listOfSetups;
+    }
+
+  
 //    public List<Account> fetchAccountData(){
 //        session = HibernateUtil.getSessionFactory().openSession();
 //        transaction = session.beginTransaction();
