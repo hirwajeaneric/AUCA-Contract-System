@@ -1,9 +1,8 @@
 package rw.ac.auca.contract.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,18 +13,17 @@ import javax.persistence.Id;
 @Entity
 public class ContractSetup implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String setupId;
     private String academicYear;
     private String semester;
-    private String submittionStartDate;
-    private String submittionEndDate;
+    private Date submittionStartDate;
+    private Date submittionEndDate;
     private Double rate;
 
     public ContractSetup() {
     }
 
-    public ContractSetup(String setupId, String academicYear, String semester, String submittionStartDate, String submittionEndDate, Double rate) {
+    public ContractSetup(String setupId, String academicYear, String semester, Date submittionStartDate, Date submittionEndDate, Double rate) {
         this.setupId = setupId;
         this.academicYear = academicYear;
         this.semester = semester;
@@ -58,19 +56,19 @@ public class ContractSetup implements Serializable {
         this.semester = semester;
     }
 
-    public String getSubmittionStartDate() {
+    public Date getSubmittionStartDate() {
         return submittionStartDate;
     }
 
-    public void setSubmittionStartDate(String submittionStartDate) {
+    public void setSubmittionStartDate(Date submittionStartDate) {
         this.submittionStartDate = submittionStartDate;
     }
 
-    public String getSubmittionEndDate() {
+    public Date getSubmittionEndDate() {
         return submittionEndDate;
     }
 
-    public void setSubmittionEndDate(String submittionEndDate) {
+    public void setSubmittionEndDate(Date submittionEndDate) {
         this.submittionEndDate = submittionEndDate;
     }
 
@@ -81,4 +79,6 @@ public class ContractSetup implements Serializable {
     public void setRate(Double rate) {
         this.rate = rate;
     }
+
+    
 }

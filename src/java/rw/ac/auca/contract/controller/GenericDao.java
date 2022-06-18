@@ -23,6 +23,14 @@ public class GenericDao {
         transaction.commit();
         session.close();
     }
+
+    public void createNewSetup(ContractSetup setup){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        session.save(setup);
+        transaction.commit();
+        session.close();
+    }
     
     public void createSetup(ContractSetup setup){
         session = HibernateUtil.getSessionFactory().openSession();
@@ -83,6 +91,13 @@ public class GenericDao {
         StudentCredentials foundCredentials = (StudentCredentials)session.get(StudentCredentials.class, regNumber);
         session.close();
         return foundCredentials;
+    }
+
+    public ContractSetup findContractSetup(String setupId){
+        session = HibernateUtil.getSessionFactory().openSession();
+        ContractSetup foundSetup = (ContractSetup)session.get(ContractSetup.class, setupId);
+        session.close();
+        return foundSetup;
     }
     
     public List<Contract> listContractPerStudent(String regNumber){
