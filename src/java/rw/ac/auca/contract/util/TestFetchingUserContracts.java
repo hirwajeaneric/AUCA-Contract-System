@@ -14,9 +14,16 @@ public class TestFetchingUserContracts {
         GenericDao genericDao = new GenericDao();
         
         String regNumber = "22026";
+        List<Contract> listOfAllContracts = genericDao.fetchContracts();
+        
+        for (Contract aContract : listOfAllContracts) {
+            System.out.println(aContract.toString());
+        }
+        
         List<Contract> listOfUserContracts = genericDao.listContractPerStudent(regNumber);
         for (Contract aContract : listOfUserContracts) {
-            System.out.println(aContract.getFirstName()+" - "+aContract.getLastName()+" - "+aContract.getStatus());
+            System.out.println(aContract.getFirstName()+" "+aContract.getLastName()+" - "+aContract.getStatus());
         }
+        
     }
 }

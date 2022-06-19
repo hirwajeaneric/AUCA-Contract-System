@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 import rw.ac.auca.contract.controller.GenericDao;
 import rw.ac.auca.contract.entities.AucaStudents;
 import rw.ac.auca.contract.entities.LoginCheckUp;
+import rw.ac.auca.contract.entities.Registration;
 import rw.ac.auca.contract.entities.StudentCredentials;
 
 /**
@@ -17,6 +18,7 @@ import rw.ac.auca.contract.entities.StudentCredentials;
 @ManagedBean(name = "authent")
 public class AuthenticationModel {
     private StudentCredentials userCredentials= new StudentCredentials();
+    private Registration registrationData = new Registration();
     private LoginCheckUp checking = new LoginCheckUp();
     private AucaStudents aucaStudent = new AucaStudents();
     private GenericDao genericDao = new GenericDao();
@@ -28,6 +30,14 @@ public class AuthenticationModel {
 
     public String getUserNames() {
         return userNames;
+    }
+
+    public void setRegistrationData(Registration registrationData) {
+        this.registrationData = registrationData;
+    }
+
+    public Registration getRegistrationData() {
+        return registrationData;
     }
     
     public AucaStudents getAucaStudent() {
@@ -67,6 +77,8 @@ public class AuthenticationModel {
         String enteredPassword = checking.getPasswordC();
         
         userCredentials = genericDao.findPassword(enteredId);
+        registrationData = genericDao.findRegistrationDetailsOfStudent(enteredId);
+        System.out.println("Due amount is: "+registrationData.getAmountDue());
         String userPassword = userCredentials.getCreatePassword();
         
         if(enteredPassword.equals(userPassword)){

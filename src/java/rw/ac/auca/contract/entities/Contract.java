@@ -144,6 +144,11 @@ public class Contract implements Serializable {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return "Contract{" + "contractNumber=" + contractNumber + ", regNumber=" + regNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", email=" + email + ", dueAmount=" + dueAmount + ", paidAmount=" + paidAmount + ", nameOnReciept=" + nameOnReciept + ", amountPerInstallment=" + amountPerInstallment + ", creationdate=" + creationdate + ", status=" + status + '}';
+    }
+
     
     
 }

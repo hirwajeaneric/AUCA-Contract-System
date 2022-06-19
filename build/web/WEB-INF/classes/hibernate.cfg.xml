@@ -50,5 +50,6 @@ Contributor(s):
     <mapping class="rw.ac.auca.contract.entities.StudentCredentials"/>
     <mapping class="rw.ac.auca.contract.entities.Contract"/>
     <mapping class="rw.ac.auca.contract.entities.ContractSetup"/>
+    <mapping class="rw.ac.auca.contract.entities.Registration"/>
   </session-factory>
 </hibernate-configuration>

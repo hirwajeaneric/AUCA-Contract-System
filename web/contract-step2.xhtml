@@ -73,18 +73,6 @@
                         </tr>
                         
                         <tr>
-                            <td><h:outputLabel value="Creation Date " /></td>
-                            <td>
-                                <h:inputText value="#{cont.contract.creationdate}" id="creationDate" required="true">
-                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
-                                </h:inputText>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><h:message for="creationDate" class="error-message" infoClass="info" errorClass="error" /></td>
-                        </tr>
-                        
-                        <tr>
                             <td><h:commandButton value="Previous" action="#{cont.previousToStep1()}" class="form-buttons"/></td>
                             <td><h:commandButton value="Next" action="#{cont.nextToContractSummary()}" class="form-buttons"/></td>
                         </tr>
