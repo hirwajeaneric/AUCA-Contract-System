@@ -167,7 +167,7 @@ body, .container {
 /*STYLING FOR THE USER CONTRACTS TABLE*/
 .userContractsT {
     border-collapse: collapse;
-    margin: 0 0 25px;
+    margin: 0 auto 25px;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;

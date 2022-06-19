@@ -22,19 +22,18 @@ public class Contract implements Serializable {
     private String lastName;
     private String phone;
     private String email;
-    private String dueAmount;
-    private String paidAmount;
+    private Double dueAmount;
+    private Double paidAmount;
     private String nameOnReciept;
 //    private byte[] paymentReciet;
-    private String amountPerInstallment;
+    private Double amountPerInstallment;
     private Date creationdate;
-    private String sponsor;
     private String status;
 
     public Contract() {
     }
 
-    public Contract(int contractNumber, String regNumber, String firstName, String lastName, String phone, String email, String dueAmount, String paidAmount, String nameOnReciept, String amountPerInstallment, Date creationdate, String sponsor, String status) {
+    public Contract(int contractNumber, String regNumber, String firstName, String lastName, String phone, String email, Double dueAmount, Double paidAmount, String nameOnReciept, Double amountPerInstallment, Date creationdate, String status) {
         this.contractNumber = contractNumber;
         this.regNumber = regNumber;
         this.firstName = firstName;
@@ -46,7 +45,6 @@ public class Contract implements Serializable {
         this.nameOnReciept = nameOnReciept;
         this.amountPerInstallment = amountPerInstallment;
         this.creationdate = creationdate;
-        this.sponsor = sponsor;
         this.status = status;
     }
 
@@ -98,19 +96,19 @@ public class Contract implements Serializable {
         this.email = email;
     }
 
-    public String getDueAmount() {
+    public Double getDueAmount() {
         return dueAmount;
     }
 
-    public void setDueAmount(String dueAmount) {
+    public void setDueAmount(Double dueAmount) {
         this.dueAmount = dueAmount;
     }
 
-    public String getPaidAmount() {
+    public Double getPaidAmount() {
         return paidAmount;
     }
 
-    public void setPaidAmount(String paidAmount) {
+    public void setPaidAmount(Double paidAmount) {
         this.paidAmount = paidAmount;
     }
 
@@ -122,11 +120,11 @@ public class Contract implements Serializable {
         this.nameOnReciept = nameOnReciept;
     }
 
-    public String getAmountPerInstallment() {
+    public Double getAmountPerInstallment() {
         return amountPerInstallment;
     }
 
-    public void setAmountPerInstallment(String amountPerInstallment) {
+    public void setAmountPerInstallment(Double amountPerInstallment) {
         this.amountPerInstallment = amountPerInstallment;
     }
 
@@ -138,14 +136,6 @@ public class Contract implements Serializable {
         this.creationdate = creationdate;
     }
 
-    public String getSponsor() {
-        return sponsor;
-    }
-
-    public void setSponsor(String sponsor) {
-        this.sponsor = sponsor;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -154,5 +144,6 @@ public class Contract implements Serializable {
         this.status = status;
     }
 
+    
     
 }

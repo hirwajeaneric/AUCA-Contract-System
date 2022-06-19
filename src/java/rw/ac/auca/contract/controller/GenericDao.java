@@ -1,8 +1,10 @@
 package rw.ac.auca.contract.controller;
 
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import rw.ac.auca.contract.entities.Contract;
 import rw.ac.auca.contract.entities.ContractSetup;
 import rw.ac.auca.contract.entities.StudentCredentials;
@@ -102,7 +104,9 @@ public class GenericDao {
     
     public List<Contract> listContractPerStudent(String regNumber){
         session = HibernateUtil.getSessionFactory().openSession();
-        List<Contract> listOfYourContracts = session.createCriteria(Contract.class, regNumber).list();
+        Criteria cr = session.createCriteria(Contract.class);
+        cr.add(Restrictions.eq("regNumber", regNumber));
+        List listOfYourContracts = cr.list();
         session.close();
         return listOfYourContracts;
     }
