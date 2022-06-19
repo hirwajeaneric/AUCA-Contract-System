@@ -49,5 +49,6 @@ Contributor(s):
     <property name="hibernate.show_sql">true</property>
     <mapping class="rw.ac.auca.contract.entities.StudentCredentials"/>
     <mapping class="rw.ac.auca.contract.entities.Contract"/>
+    <mapping class="rw.ac.auca.contract.entities.ContractSetup"/>
   </session-factory>
 </hibernate-configuration>
