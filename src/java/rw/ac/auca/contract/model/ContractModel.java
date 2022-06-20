@@ -1,5 +1,6 @@
 package rw.ac.auca.contract.model;
 
+import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -7,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import rw.ac.auca.contract.controller.GenericDao;
 import rw.ac.auca.contract.entities.Contract;
+import rw.ac.auca.contract.entities.Registration;
 import rw.ac.auca.contract.entities.StudentCredentials;
 
 /**
@@ -16,11 +18,19 @@ import rw.ac.auca.contract.entities.StudentCredentials;
 @SessionScoped
 @ManagedBean(name = "cont")
 public class ContractModel {
+
     private Contract contract = new Contract();
     private GenericDao genericDao = new GenericDao();
     private StudentCredentials credentials = new StudentCredentials();
     private String userNames;
-
+    private Registration registrationData = new Registration();
+    String regNumber = credentials.getRegistrationNumber();
+    
+    public void fetchRegistrationData(String studentRegNumber){
+        registrationData = genericDao.findRegistrationDetailsOfStudent(studentRegNumber);
+        System.out.println("The student with id "+studentRegNumber+" will pay "+registrationData.getAmountDue());
+    }
+    
     public void setUserNames(String userNames) {
         this.userNames = userNames;
     }
@@ -28,8 +38,6 @@ public class ContractModel {
     public String getUserNames() {
         return userNames;
     }
-    
-    String regNumber = credentials.getRegistrationNumber();
     
     public StudentCredentials getCredentials() {
         return credentials;
@@ -71,10 +79,24 @@ public class ContractModel {
     }
     
     public String createContract(){
-        userNames = credentials.getFirstName()+" "+credentials.getLastName();
         String studentRegNumber = credentials.getRegistrationNumber();
-        contract.setRegNumber(studentRegNumber);
-        return "create-contract";
+        System.out.println("The students' ID is "+studentRegNumber);
+        fetchRegistrationData(studentRegNumber);
+        if (registrationData.getAmountDue() > 0) {
+            
+            userNames = credentials.getFirstName()+" "+credentials.getLastName();
+            
+            contract.setRegNumber(registrationData.getRegNumber());    
+            contract.setFirstName(registrationData.getFirstName());
+            contract.setLastName(registrationData.getLastName());    
+            contract.setDueAmount(registrationData.getAmountDue());    
+            
+            return "student-account";
+        } else {
+            FacesMessage message = new FacesMessage("Sorry, you can't create a contract if you are didn't register for courses in this semester.");
+            FacesContext.getCurrentInstance().addMessage("contract-error", message);
+            return "create-contract";
+        }
     }
     
     public String confirmContract(){
@@ -88,9 +110,15 @@ public class ContractModel {
     }   
 
     public String contractStep2(){
+        contract.setCreationdate(new Date());
         userNames = credentials.getFirstName()+" "+credentials.getLastName();
         return "contract-step2";
     } 
+    
+    public String calculateAmountPerInstallment(){
+        contract.setAmountPerInstallment(contract.getDueAmount()/3);
+        return "contract-step2";
+    }
     
     public String previousToStep1(){
         userNames = credentials.getFirstName()+" "+credentials.getLastName();

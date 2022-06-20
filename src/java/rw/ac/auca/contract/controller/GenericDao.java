@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import rw.ac.auca.contract.entities.Contract;
 import rw.ac.auca.contract.entities.ContractSetup;
+import rw.ac.auca.contract.entities.Registration;
 import rw.ac.auca.contract.entities.StudentCredentials;
 import rw.ac.auca.contract.util.HibernateUtil;
 
@@ -95,6 +96,13 @@ public class GenericDao {
         return foundCredentials;
     }
 
+    public Registration findRegistrationDetailsOfStudent(String regNumber){
+        session = HibernateUtil.getSessionFactory().openSession();
+        Registration foundDetials = (Registration)session.get(Registration.class, regNumber);
+        session.close();
+        return foundDetials;
+    }
+
     public ContractSetup findContractSetup(String setupId){
         session = HibernateUtil.getSessionFactory().openSession();
         ContractSetup foundSetup = (ContractSetup)session.get(ContractSetup.class, setupId);
@@ -118,6 +126,14 @@ public class GenericDao {
         transaction.commit();
         session.close();
         return listOfContracts;
+    }
+    public List<Registration> fetchRegistrations(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+        List<Registration> RegistrationList = session.createCriteria(Registration.class).list();
+        transaction.commit();
+        session.close();
+        return RegistrationList;
     }
 
     public List<ContractSetup> fetchSetups(){
